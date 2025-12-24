@@ -1,0 +1,49 @@
+{% extends 'sub-base.html.twig' %}
+
+{% block title %}
+    Réclamation
+{% endblock %}
+
+{% block body %}
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>Formulaire de <span>Réclamation</span></h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="box">
+                    <div class="detail-box">
+                        <p>
+                            Si vous avez une réclamation concernant un échange, un objet ou tout autre aspect de notre service, 
+                            veuillez remplir le formulaire ci-dessous. Notre équipe vous répondra dans les plus brefs délais.
+                        </p>
+                        <form class="mt-4">
+                            <div class="form-group">
+                                <label for="nom">Nom complet</label>
+                                <input type="text" class="form-control" id="nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sujet">Sujet</label>
+                                <input type="text" class="form-control" id="sujet" name="sujet" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="btn-box">
+                                <button type="submit" class="btn btn-primary">Envoyer la réclamation</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
