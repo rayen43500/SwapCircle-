@@ -184,3 +184,29 @@ php bin/console importmap:install
 
 Pour plus d'informations, consultez la [documentation Symfony](https://symfony.com/doc/6.4/index.html).
 
+SwapCircle est une application web développée avec Symfony 6.4 pour faciliter l'échange d'objets entre utilisateurs. Elle comprend deux interfaces principales :
+
+Front-office : Permet aux utilisateurs de créer, rechercher, modifier et échanger des objets. Inclut des fonctionnalités comme la gestion des réclamations, blogs, tutoriels, recyclage, etc.
+Back-office : Interface d'administration pour gérer les utilisateurs, objets, échanges, blogs, commentaires, etc.
+Technologies utilisées :
+
+Framework : Symfony 6.4
+ORM : Doctrine
+Base de données : MySQL / PostgreSQL
+Templates : Twig
+Front-end : JavaScript, Bootstrap, FontAwesome, Chart.js
+Sécurité : Système d'authentification avec rôles (ex. : ROLE_ADMIN)
+Autres : Mercure pour les notifications temps réel, Messenger pour les files d'attente
+Fonctionnalités clés :
+
+Gestion des utilisateurs et authentification
+CRUD pour objets, échanges, blogs, réclamations
+Pagination avec KnpPaginator
+Notifications via service personnalisé
+Intégration Google Maps pour la localisation
+Tests avec PHPUnit
+Le projet est conçu pour être modulaire, avec des entités Doctrine, contrôleurs, formulaires Symfony, et repositories pour la logique métier. Il utilise Docker pour l'environnement de développement (PostgreSQL optionnel). Pour plus de détails, consultez le README.md.
+
+Grok Code Fast 1 • 1x
+
+
