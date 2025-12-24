@@ -1,13 +1,17 @@
 {% extends 'back-base.html.twig' %}
 
-{% block title %}Gestion des Échanges{% endblock %}
+{% block title %}Gestion des Échanges - SwapCircle{% endblock %}
 
 {% block body %}
 <div class="app-content pt-3 p-md-3 p-lg-4">
     <div class="container-xl">
         <div class="row g-3 mb-4 align-items-center justify-content-between">
             <div class="col-auto">
-                <h1 class="app-page-title mb-0">Gestion des Échanges</h1>
+                <h1 class="app-page-title mb-0">
+                    <i class="fas fa-exchange-alt text-success me-2"></i>
+                    Gestion des Échanges
+                </h1>
+                <p class="text-muted mt-1">Facilitez les échanges durables et contribuez à une économie circulaire positive 🌍</p>
             </div>
             <div class="col-auto">
                 <a href="{{ path('app_back_office_echange_new') }}" class="btn app-btn-primary">
@@ -15,29 +19,33 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="row g-4 mb-4">
             <div class="col-12">
                 <div class="app-card app-card-orders-table shadow-sm mb-5">
-                    <div class="app-card-header p-3">
+                    <div class="app-card-header p-3 bg-light">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-auto">
-                                <h4 class="app-card-title">Liste des Échanges</h4>
+                                <h4 class="app-card-title mb-0">
+                                    <i class="fas fa-list text-primary me-2"></i>
+                                    Liste des Échanges Actifs
+                                </h4>
+                                <small class="text-muted">Gérez et suivez les échanges pour un impact positif sur la communauté</small>
                             </div>
                         </div>
                     </div>
                     <div class="app-card-body p-3">
                         <div class="table-responsive">
                             <table class="table app-table-hover mb-0 text-left">
-                                <thead>
+                                <thead class="table-light">
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Titre</th>
-                                        <th>Utilisateur</th>
-                                        <th>Objet proposé</th>
-                                        <th>Date d'échange</th>
-                                        <th>Statut</th>
-                                        <th>Actions</th>
+                                        <th><i class="fas fa-hashtag text-muted me-1"></i>ID</th>
+                                        <th><i class="fas fa-tag text-muted me-1"></i>Titre</th>
+                                        <th><i class="fas fa-user text-muted me-1"></i>Utilisateur</th>
+                                        <th><i class="fas fa-box text-muted me-1"></i>Objet proposé</th>
+                                        <th><i class="fas fa-calendar text-muted me-1"></i>Date d'échange</th>
+                                        <th><i class="fas fa-info-circle text-muted me-1"></i>Statut</th>
+                                        <th><i class="fas fa-cogs text-muted me-1"></i>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,15 +62,15 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <a href="{{ path('app_back_office_echange_show', {'id': echange.getIdEchange}) }}" class="btn btn-info btn-sm">
+                                            <a href="{{ path('app_back_office_echange_show', {'id': echange.getIdEchange}) }}" class="btn btn-info btn-sm" title="Voir les détails">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="{{ path('app_back_office_echange_edit', {'id': echange.getIdEchange}) }}" class="btn btn-primary btn-sm">
+                                            <a href="{{ path('app_back_office_echange_edit', {'id': echange.getIdEchange}) }}" class="btn btn-primary btn-sm" title="Modifier">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <form method="post" action="{{ path('app_back_office_echange_delete', {'id': echange.getIdEchange}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet échange ?');">
+                                            <form method="post" action="{{ path('app_back_office_echange_delete', {'id': echange.getIdEchange}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet échange ? Cette action est irréversible.');">
                                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ echange.getIdEchange) }}">
-                                                <button class="btn btn-danger btn-sm">
+                                                <button class="btn btn-danger btn-sm" title="Supprimer">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
@@ -70,7 +78,11 @@
                                     </tr>
                                     {% else %}
                                     <tr>
-                                        <td colspan="7" class="text-center">Aucun échange trouvé</td>
+                                        <td colspan="7" class="text-center py-4">
+                                            <i class="fas fa-inbox fa-2x text-muted mb-2"></i>
+                                            <p class="mb-0">Aucun échange trouvé pour le moment.</p>
+                                            <small class="text-muted">Les échanges apparaîtront ici une fois créés par les utilisateurs.</small>
+                                        </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

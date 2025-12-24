@@ -1135,4 +1135,96 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+
+/* Custom styles for SwapCircle */
+.hero_area {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.slider_section .detail-box h1 {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+}
+.slider_section .detail-box p {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+.btn1, .btn2 {
+  background: #ff6b6b;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.btn1:hover, .btn2:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+.info_section {
+  background: #f8f9fa;
+  padding: 60px 0;
+}
+.service_section {
+  background: #fff;
+  padding: 80px 0;
+}
+.contact_section {
+  background: #343a40;
+  color: #fff;
+  padding: 80px 0;
+}
+
+/* Login page styles */
+.service_section.login {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.service_section.login .box {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.service_section.login .detail-box h4 {
+  color: #333;
+  margin-bottom: 30px;
+}
+.service_section.login .form-group label {
+  color: #555;
+  font-weight: 600;
+}
+.service_section.login .form-control {
+  border-radius: 25px;
+  border: 2px solid #ddd;
+  padding: 12px 20px;
+}
+.service_section.login .form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+.service_section.login .btn-primary {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.service_section.login .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+.service_section.login .alert {
+  border-radius: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

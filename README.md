@@ -1,212 +1,170 @@
-# SwapCircle
+# SwapCircle 🌍
 
-SwapCircle est une application web de gestion et d'échange d'objets entre utilisateurs. Elle propose un back-office pour l'administration et un front-office pour les utilisateurs permettant de créer, modifier, rechercher et échanger des objets.
+**Rejoignez la révolution de l'échange durable !**
 
-## Prérequis
+SwapCircle est bien plus qu'une plateforme d'échange d'objets : c'est un mouvement vers une économie circulaire où chaque objet trouve une nouvelle vie. En facilitant l'échange entre utilisateurs, nous contribuons à réduire les déchets, à promouvoir la durabilité et à créer un impact positif sur notre planète.
+
+Notre application web moderne offre une interface intuitive pour créer, rechercher et échanger des objets, tout en intégrant des fonctionnalités avancées comme la gestion des réclamations, des blogs communautaires et des tutoriels éducatifs.
+
+## 🚀 Démarrage rapide
+
+Prêt à faire partie du changement ? Suivez ces étapes simples pour lancer SwapCircle sur votre machine.
+
+### Prérequis
 
 - **PHP** >= 8.1
 - **Composer** (gestionnaire de dépendances PHP)
-- **MySQL** 8.0+ ou **PostgreSQL** 16+ (selon votre configuration)
-- **Docker** et **Docker Compose** (optionnel, pour la base de données)
+- **MySQL** 8.0+ ou **PostgreSQL** 16+ (selon votre préférence)
+- **Docker** et **Docker Compose** (optionnel, pour une configuration simplifiée)
 
-## Installation
+### Installation
 
-### 1. Cloner le projet (si nécessaire)
+1. **Clonez le projet** (si nécessaire)
+   ```bash
+   cd SwapCircle
+   ```
 
-```bash
-cd SwapCircle
-```
+2. **Installez les dépendances PHP**
+   ```bash
+   composer install
+   ```
 
-### 2. Installer les dépendances PHP
+3. **Configurez l'environnement**
+   
+   Le fichier `.env` est préconfiguré. Vérifiez ces variables clés :
+   - `DATABASE_URL` : Connexion à votre base de données
+   - `APP_SECRET` : Clé secrète générée automatiquement
 
-```bash
-composer install
-```
+   **Configuration par défaut :**
+   - Base : MySQL sur `127.0.0.1:3306`
+   - Nom : `swapcircle`
+   - Utilisateur : `root` (mot de passe vide)
 
-### 3. Configuration de l'environnement
+4. **Configurez la base de données**
 
-Le fichier `.env` contient déjà une configuration par défaut. Vérifiez ou modifiez les variables suivantes selon vos besoins :
+   **Option A : Avec Docker Compose (PostgreSQL recommandé)**
+   ```bash
+   # Lancez les services base de données et mailer
+   docker compose up -d
 
-- `DATABASE_URL` : URL de connexion à la base de données
-- `APP_SECRET` : Clé secrète de l'application (générée automatiquement)
+   # Mettez à jour le .env pour PostgreSQL
+   # DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+   ```
 
-**Configuration actuelle :**
-- Base de données : MySQL sur `127.0.0.1:3306`
-- Nom de la base : `swapcircle`
-- Utilisateur : `root` (sans mot de passe)
+   **Option B : MySQL local**
+   ```sql
+   CREATE DATABASE swapcircle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+   
+   Assurez-vous que votre `.env` contient :
+   ```
+   DATABASE_URL="mysql://root:@127.0.0.1:3306/swapcircle?serverVersion=8.0.32&charset=utf8mb4"
+   ```
 
-### 4. Configuration de la base de données
+5. **Appliquez les migrations**
+   ```bash
+   php bin/console doctrine:migrations:migrate
+   ```
+   Confirmez avec `yes` si demandé.
 
-#### Option A : Utiliser Docker Compose (PostgreSQL)
+6. **(Optionnel) Chargez les données de test**
+   ```bash
+   php bin/console doctrine:fixtures:load
+   ```
 
-Si vous préférez utiliser PostgreSQL via Docker :
+### Lancement de l'application
 
-```bash
-# Démarrer les services (base de données + mailer)
-docker compose up -d
-
-# Mettre à jour le .env pour utiliser PostgreSQL
-# DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
-```
-
-#### Option B : Utiliser MySQL localement
-
-1. Créez la base de données MySQL :
-```sql
-CREATE DATABASE swapcircle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-2. Vérifiez que le `.env` contient :
-```
-DATABASE_URL="mysql://root:@127.0.0.1:3306/swapcircle?serverVersion=8.0.32&charset=utf8mb4"
-```
-
-### 5. Exécuter les migrations de base de données
-
-```bash
-php bin/console doctrine:migrations:migrate
-```
-
-Si c'est la première fois, vous devrez confirmer avec `yes`.
-
-### 6. (Optionnel) Charger les données de test
-
-Si vous avez des fixtures :
-
-```bash
-php bin/console doctrine:fixtures:load
-```
-
-## Lancer l'application
-
-### Méthode 1 : Utiliser le serveur Symfony (recommandé pour le développement)
-
+**Méthode recommandée : Serveur Symfony**
 ```bash
 symfony server:start
 ```
 
-Ou si vous n'avez pas Symfony CLI installé :
-
+**Alternative : Serveur PHP intégré**
 ```bash
 php -S localhost:8000 -t public
 ```
 
-L'application sera accessible à l'adresse : **http://localhost:8000**
+Votre application sera accessible sur **http://localhost:8000** – commencez à échanger dès maintenant !
 
-### Méthode 2 : Utiliser un serveur web (Apache/Nginx)
+## 🛠️ Commandes utiles
 
-Configurez votre serveur web pour pointer vers le dossier `public/` comme racine du document.
+- **Vider le cache** : `php bin/console cache:clear`
+- **Créer une migration** : `php bin/console make:migration`
+- **Appliquer les migrations** : `php bin/console doctrine:migrations:migrate`
+- **Voir les routes** : `php bin/console debug:router`
+- **Lancer les tests** : `php bin/phpunit`
 
-## Commandes utiles
+## 📁 Structure du projet
 
-### Vider le cache
-
-```bash
-php bin/console cache:clear
-```
-
-### Créer une nouvelle migration
-
-```bash
-php bin/console make:migration
-```
-
-### Appliquer les migrations
-
-```bash
-php bin/console doctrine:migrations:migrate
-```
-
-### Voir les routes disponibles
-
-```bash
-php bin/console debug:router
-```
-
-### Lancer les tests
-
-```bash
-php bin/phpunit
-```
-
-## Structure du projet
+Une architecture claire et modulaire pour une maintenance facile :
 
 ```
 SwapCircle/
-├── assets/              # Assets front-end (JS, CSS)
-├── bin/                 # Scripts exécutables (console, phpunit)
+├── assets/              # Ressources front-end (JS, CSS)
+├── bin/                 # Scripts exécutables
 ├── config/              # Configuration Symfony
 ├── migrations/          # Migrations Doctrine
-├── public/              # Point d'entrée public (index.php)
-│   ├── backOffice/      # Assets du back-office
-│   └── frontOffice/     # Assets du front-office
-├── src/                 # Code source de l'application
-│   ├── Controller/      # Contrôleurs
-│   ├── Entity/          # Entités Doctrine
+├── public/              # Point d'entrée web
+│   ├── backOffice/      # Interface administration
+│   └── frontOffice/     # Interface utilisateur
+├── src/                 # Code source
+│   ├── Controller/      # Logique de contrôle
+│   ├── Entity/          # Modèles de données
 │   ├── Form/            # Formulaires Symfony
-│   └── Repository/      # Repositories Doctrine
+│   └── Repository/      # Accès aux données
 ├── templates/           # Templates Twig
-└── tests/               # Tests PHPUnit
+└── tests/               # Tests automatisés
 ```
 
-## Technologies utilisées
+## 🛡️ Technologies et sécurité
 
-- **Framework** : Symfony 6.4
-- **ORM** : Doctrine ORM
-- **Templates** : Twig
+SwapCircle repose sur des technologies robustes et modernes :
+
+- **Framework** : Symfony 6.4 – Puissant et sécurisé
+- **ORM** : Doctrine – Gestion efficace des données
+- **Templates** : Twig – Sécurisé et flexible
 - **Base de données** : MySQL / PostgreSQL
 - **Front-end** : JavaScript, Bootstrap, FontAwesome, Chart.js
-- **Tests** : PHPUnit
+- **Sécurité** : Authentification avancée avec rôles (ex. : ROLE_ADMIN)
+- **Temps réel** : Mercure pour les notifications, Messenger pour les files
+- **Tests** : PHPUnit pour une qualité garantie
 
-## Dépannage
+## 🌱 Impact environnemental
 
-### Erreur de connexion à la base de données
+Chez SwapCircle, nous croyons au pouvoir de l'action collective :
 
-- Vérifiez que MySQL/PostgreSQL est démarré
-- Vérifiez les identifiants dans `.env`
-- Assurez-vous que la base de données existe
+- **Économie circulaire** : Donnez une seconde vie aux objets au lieu de les jeter
+- **Réduction des déchets** : Moins de production, plus de partage
+- **Communauté engagée** : Rejoignez des milliers d'utilisateurs motivés par la durabilité
+- **Impact positif** : Ensemble, créons un avenir plus vert et responsable
 
-### Erreur de permissions
+## 🔧 Dépannage
 
-Sur Linux/Mac, vous pourriez avoir besoin de :
+Rencontrez un problème ? Voici les solutions courantes :
+
+### Connexion base de données
+- Vérifiez que MySQL/PostgreSQL fonctionne
+- Contrôlez les identifiants dans `.env`
+- Assurez-vous que la base existe
+
+### Permissions
+Sur Linux/Mac :
 ```bash
 chmod +x bin/console
 ```
 
-### Problèmes avec les assets
-
+### Assets
 ```bash
 php bin/console assets:install public
 php bin/console importmap:install
 ```
 
-## Support
+## 📞 Support et contribution
 
-Pour plus d'informations, consultez la [documentation Symfony](https://symfony.com/doc/6.4/index.html).
+Pour en savoir plus, consultez la [documentation Symfony](https://symfony.com/doc/6.4/index.html).
 
-SwapCircle est une application web développée avec Symfony 6.4 pour faciliter l'échange d'objets entre utilisateurs. Elle comprend deux interfaces principales :
+**Comptes de test :**
+- **Admin** : admin@swapcircle.com / admin123
+- **Utilisateur** : user@swapcircle.com / user123
 
-Front-office : Permet aux utilisateurs de créer, rechercher, modifier et échanger des objets. Inclut des fonctionnalités comme la gestion des réclamations, blogs, tutoriels, recyclage, etc.
-Back-office : Interface d'administration pour gérer les utilisateurs, objets, échanges, blogs, commentaires, etc.
-Technologies utilisées :
-
-Framework : Symfony 6.4
-ORM : Doctrine
-Base de données : MySQL / PostgreSQL
-Templates : Twig
-Front-end : JavaScript, Bootstrap, FontAwesome, Chart.js
-Sécurité : Système d'authentification avec rôles (ex. : ROLE_ADMIN)
-Autres : Mercure pour les notifications temps réel, Messenger pour les files d'attente
-Fonctionnalités clés :
-
-Gestion des utilisateurs et authentification
-CRUD pour objets, échanges, blogs, réclamations
-Pagination avec KnpPaginator
-Notifications via service personnalisé
-Intégration Google Maps pour la localisation
-Tests avec PHPUnit
-Le projet est conçu pour être modulaire, avec des entités Doctrine, contrôleurs, formulaires Symfony, et repositories pour la logique métier. Il utilise Docker pour l'environnement de développement (PostgreSQL optionnel). Pour plus de détails, consultez le README.md.
-
-Grok Code Fast 1 • 1x
-
-
+Prêt à contribuer ? Ouvrez une issue ou une pull request. Ensemble, rendons SwapCircle encore meilleur pour la planète ! 🌍✨

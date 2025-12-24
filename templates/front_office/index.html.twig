@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bienvenue sur SwapCircle 🌍{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
         {% endblock %}
@@ -93,54 +93,207 @@
                 </div>
               </header>
               <!-- end header section -->
-           
+
+              <!-- slider section -->
+              <section class="slider_section">
+                <div class="dot_design">
+                  <img src="{{ asset('frontOffice/images/dots.png') }}" alt="">
+                </div>
+                <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="detail-box">
+                              <div class="play_btn">
+                                <button>
+                                  <i class="fa fa-play" aria-hidden="true"></i>
+                                </button>
+                              </div>
+                              <h1>
+                                SwapCircle <br>
+                                <span>
+                                  Échangez pour un avenir durable 🌍
+                                </span>
+                              </h1>
+                              <p>
+                                Découvrez SwapCircle, votre plateforme engagée pour l'économie circulaire ! Échangez vos objets pour réduire les déchets et créer un impact positif sur notre planète. ♻️ Ensemble, construisons un avenir plus durable !
+                              </p>
+                              <div class="btn-box">
+                                <a href="{{ path('app_objet_index') }}" class="btn1">
+                                  Explorer les objets
+                                </a>
+                                <a href="{{ path('app_objet_new') }}" class="btn2">
+                                  Partager un objet
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="img-box">
+                              <img src="{{ asset('frontOffice/images/slider-img.jpg') }}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="detail-box">
+                              <div class="play_btn">
+                                <button>
+                                  <i class="fa fa-play" aria-hidden="true"></i>
+                                </button>
+                              </div>
+                              <h1>
+                                Communauté Verte 🌱 <br>
+                                <span>
+                                  Rejoignez notre réseau durable
+                                </span>
+                              </h1>
+                              <p>
+                                Connectez-vous avec une communauté passionnée par la durabilité ! Échangez, partagez des idées et créez des liens positifs pour un monde meilleur. 🤝
+                              </p>
+                              <div class="btn-box">
+                                <a href="{{ path('front_office_contact') }}" class="btn1">
+                                  Contactez-nous
+                                </a>
+                                <a href="{{ path('front_office_blog') }}" class="btn2">
+                                  Découvrez notre blog
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="img-box">
+                              <img src="{{ asset('frontOffice/images/slider-img.jpg') }}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel_btn-box">
+                    <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                      <img src="{{ asset('frontOffice/images/prev.png') }}" alt="">
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                      <img src="{{ asset('frontOffice/images/next.png') }}" alt="">
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <!-- end slider section -->
+
         {% block body %}{% endblock %}
+
+        <!-- service section -->
+        <section class="service_section layout_padding">
+          <div class="container">
+            <div class="heading_container heading_center">
+              <h2>Nos <span>Services Écologiques</span></h2>
+              <p>Découvrez nos outils innovants pour un échange durable et responsable. ♻️</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-lg-3">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{{ asset('frontOffice/images/s1.png') }}" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>Partagez vos objets ♻️</h5>
+                    <p>Publiez vos biens pour leur donner une seconde vie et contribuer à l'économie circulaire.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{{ asset('frontOffice/images/s2.png') }}" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>Explorez et découvrez 🔍</h5>
+                    <p>Trouvez des trésors uniques et durables pour enrichir votre quotidien.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{{ asset('frontOffice/images/s3.png') }}" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>Échangez en toute simplicité 🤝</h5>
+                    <p>Organisez des échanges locaux et responsables pour un impact positif.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{{ asset('frontOffice/images/s4.png') }}" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>Communauté Engagée 🌍</h5>
+                    <p>Rejoignez une communauté motivée pour un avenir plus vert et solidaire.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end service section -->
+
         <!-- info section -->
 
         <section class="info_section ">
           <div class="info_container layout_padding2">
             <div class="container">
               <div class="info_logo">
-                <a class="navbar-brand" href="index.html"> Tro<span>Weld</span> </a>
+                <a class="navbar-brand" href="{{ path('app_front_office') }}"> Swap<span>Circle</span> </a>
               </div>
               <div class="info_main">
                 <div class="row">
                   <div class="col-md-3 col-lg-2">
                     <div class="info_link-box">
                       <h5>
-                        Useful Link
+                        Liens utiles
                       </h5>
                       <ul>
                         <li class=" active">
-                          <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
+                          <a class="" href="{{ path('app_front_office') }}">Accueil <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="">
-                          <a class="" href="about.html">About </a>
+                          <a class="" href="{{ path('app_objet_index') }}">Objets </a>
                         </li>
                         <li class="">
-                          <a class="" href="service.html">Services </a>
+                          <a class="" href="{{ path('front_office_about') }}">À propos </a>
                         </li>
                         <li class="">
-                          <a class="" href="portfolio.html"> Portfolio </a>
+                          <a class="" href="{{ path('front_office_blog') }}"> Blog </a>
                         </li>
                         <li class="">
-                          <a class="" href="contact.html"> Contact </a>
+                          <a class="" href="{{ path('front_office_contact') }}"> Contact </a>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-md-3 ">
                     <h5>
-                      Welding
+                      Échange ♻️
                     </h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur
-                      adipiscinaliquaLoreadipiscing
+                      Échangez vos objets inutilisés contre de nouveaux. Contribuez à l'économie circulaire et à la réduction des déchets.
                     </p>
                   </div>
                   <div class="col-md-3 mx-auto  ">
                     <h5>
-                      social media
+                      Réseaux sociaux
                     </h5>
                     <div class="social_box">
                       <a href="#">
@@ -159,11 +312,10 @@
                   </div>
                   <div class="col-md-3">
                     <h5>
-                      Our welding center
+                      Notre Impact 🌱
                     </h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur
-                      adipiscinaliquaLoreadipiscing
+                      Ensemble, nous avons déjà sauvé des milliers d'objets de la décharge ! Contribuez à notre mission pour un monde plus durable.
                     </p>
                   </div>
                 </div>
@@ -222,8 +374,7 @@
         <footer class="footer_section">
           <div class="container">
             <p>
-              &copy; <span id="displayYear"></span> All Rights Reserved By
-              <a href="https://html.design/">Free Html Templates</a>
+              &copy; <span id="displayYear"></span> SwapCircle - Pour un échange durable et positif ♻️
             </p>
           </div>
         </footer>
