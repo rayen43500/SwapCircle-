@@ -24,7 +24,7 @@ class EchangeType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('description', TextareaType::class, [
+            ->add('message', TextareaType::class, [
                 'label' => 'Description de votre proposition',
                 'required' => true,
                 'attr' => [

@@ -168,10 +168,7 @@ final class BackOfficeController extends AbstractController
         $echange->setUtilisateur($utilisateur);
         $echange->setObjet($objet);
         
-        $form = $this->createForm(EchangeType::class, $echange, [
-            'objet_propose' => $objet,
-            'user' => $utilisateur
-        ]);
+        $form = $this->createForm(EchangeType::class, $echange);
         
         $form->handleRequest($request);
 
@@ -259,5 +256,37 @@ final class BackOfficeController extends AbstractController
         }
 
         return $this->redirectToRoute('app_back_office_echange_show', ['id' => $echange->getIdEchange()]);
+    }
+
+    #[Route('/charts', name: 'app_back_office_charts')]
+    public function charts(): Response
+    {
+        return $this->render('back_office/charts.html.twig', [
+            'controller_name' => 'ChartsController',
+        ]);
+    }
+
+    #[Route('/settings', name: 'app_back_office_settings')]
+    public function settings(): Response
+    {
+        return $this->render('back_office/settings.html.twig', [
+            'controller_name' => 'SettingsController',
+        ]);
+    }
+
+    #[Route('/account', name: 'app_back_office_account')]
+    public function account(): Response
+    {
+        return $this->render('back_office/account.html.twig', [
+            'controller_name' => 'AccountController',
+        ]);
+    }
+
+    #[Route('/notifications', name: 'app_back_office_notifications')]
+    public function notifications(): Response
+    {
+        return $this->render('back_office/notifications.html.twig', [
+            'controller_name' => 'NotificationsController',
+        ]);
     }
 }

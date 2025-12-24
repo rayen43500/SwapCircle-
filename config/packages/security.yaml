@@ -23,7 +23,7 @@ security:
                 username_parameter: email
                 password_parameter: password
                 enable_csrf: true
-                default_target_path: app_front_office
+                default_target_path: app_login_redirect
             logout:
                 path: app_logout
                 target: app_front_office
