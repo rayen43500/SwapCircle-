@@ -30,7 +30,7 @@ class Tutorial
     #[ORM\JoinColumn(name: "id_recyclage", referencedColumnName: "id_recyclage", nullable: false)]
     private ?Recyclage $recyclage = null;
 
-    #[ORM\ManyToOne(targetEntity: Utilisateur::class)]
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: "tutorials")]
     #[ORM\JoinColumn(name: "id_utilisateur", referencedColumnName: "id_utilisateur", nullable: false)]
     private ?Utilisateur $utilisateur = null;
 

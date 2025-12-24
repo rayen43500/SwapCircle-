@@ -16,7 +16,7 @@ class Blog
     #[ORM\Column]
     private ?int $id_article = null;
 
-    #[ORM\ManyToOne(targetEntity: Utilisateur::class)]
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: "blogs")]
     #[ORM\JoinColumn(name: "id_utilisateur", referencedColumnName: "id_utilisateur", nullable: false)]
     private ?Utilisateur $utilisateur = null;
 

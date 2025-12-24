@@ -289,4 +289,20 @@ final class BackOfficeController extends AbstractController
             'controller_name' => 'NotificationsController',
         ]);
     }
+
+    #[Route('/docs', name: 'app_back_office_docs')]
+    public function docs(): Response
+    {
+        return $this->render('back_office/docs.html.twig', [
+            'controller_name' => 'DocsController',
+        ]);
+    }
+
+    #[Route('/help', name: 'app_back_office_help')]
+    public function help(): Response
+    {
+        return $this->render('back_office/help.html.twig', [
+            'controller_name' => 'HelpController',
+        ]);
+    }
 }

@@ -1,4 +1,4 @@
-{% extends 'back_office/base.html.twig' %}
+{% extends 'back-base.html.twig' %}
 
 {% block title %}Nouvelle proposition d'échange{% endblock %}
 
@@ -11,7 +11,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ path('back_office_dashboard') }}">Tableau de bord</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_back_office') }}">Tableau de bord</a></li>
                     <li class="breadcrumb-item"><a href="{{ path('app_echange_index') }}">Échanges</a></li>
                     <li class="breadcrumb-item active">Nouveau</li>
                 </ol>
