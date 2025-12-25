@@ -41,7 +41,7 @@ class Echange
     )]
     private ?string $message = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image_echange = null;
 
     #[ORM\Column(type: 'datetime')]

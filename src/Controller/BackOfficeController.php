@@ -197,10 +197,7 @@ final class BackOfficeController extends AbstractController
     #[Route('/echange/{id}/edit', name: 'app_back_office_echange_edit')]
     public function editEchange(Request $request, Echange $echange, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(EchangeType::class, $echange, [
-            'objet_propose' => $echange->getObjet(),
-            'user' => $echange->getUtilisateur(),
-        ]);
+        $form = $this->createForm(EchangeType::class, $echange);
         
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

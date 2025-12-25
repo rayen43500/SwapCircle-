@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Make image_echange nullable migration",
+			"type": "shell",
+			"command": "php bin/console make:migration && php bin/console doctrine:migrations:migrate --no-interaction",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Make image_echange nullable migration",
+			"type": "shell",
+			"command": "php bin/console make:migration",
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
